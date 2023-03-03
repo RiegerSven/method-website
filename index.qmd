@@ -8,7 +8,7 @@ This page is work in progress.
 
 
 
-This website is designed to support researchers.
+The website is build with Quarto.
 
 
 If you want to contribute, please let us know.
