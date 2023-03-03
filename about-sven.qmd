@@ -1,0 +1,30 @@
+---
+title: "Sven Rieger"
+about:
+  template: solana
+  image: "images/fav-logo.svg"
+  links:
+    - icon: twitter
+      text: twitter
+      href: https://twitter.com/svenrieger_____
+    - icon: github
+      text: Github
+      href: https://github.com/RiegerSven
+---
+
+
+
+Sven Rieger is a research scientist at the Hector Research Institute of Education Sciences and Psychology. His research interests comprise the interplay of motivational factors and personality traits. Moreover, he is interested in longitudinal data modeling and causal inference.
+
+
+## Education
+
+- PhD in Psychology (Dr.rer.nat) | 2014 - 2018 University of Tübingen
+
+- Studies of Education Sciences and Psychology (M.Sc.) | 2012 - 2014 University of Tübingen
+
+- Studies of Education (B.A.) | 2009 - 2012 University of Tübingen
+
+## Experience
+
+...

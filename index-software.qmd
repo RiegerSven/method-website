@@ -1,0 +1,60 @@
+---
+title: "Supported Software"
+---
+
+
+## R
+
+The majority of the provided code is from the statistical software R [@R-base]. We use the following R-packages: 
+
+```{r}
+#| label: pkgs-1
+#| code-fold: show
+#| results: asis
+
+pkgList <- c("knitr", "kableExtra",
+             "car",
+             "lavaan",
+             "ggplot2",
+             "MplusAutomation")
+
+
+cat(paste0(1:length(pkgList), ". ", pkgList,  " [@R-", pkgList, "]\n"))
+
+
+
+```
+
+You can install them with the following code: 
+
+```{r}
+#| label: pkgs-2
+#| code-fold: show
+#| eval: false
+
+lapply(pkgList,
+       function(x) 
+         if(!x %in% rownames(installed.packages())) install.packages(x))
+
+```
+
+
+```{r}
+#| label: pkgs-3
+#| eval: true
+#| echo: false
+knitr::write_bib(x = c("base", pkgList),
+                 file = "r-refs.bib")
+
+
+```
+
+## Mplus
+
+Lastly, we occasionally provide Mplus [@Muthen2017] code For this, however, you need valid license (https://www.statmodel.com/).  
+
+## Python
+
+Not supported yet.
+
+## References

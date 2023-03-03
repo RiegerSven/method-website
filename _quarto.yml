@@ -1,0 +1,91 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "METHODS MATTER"
+  open-graph: true
+  search:
+    location: navbar
+    type: overlay
+    copy-button: true
+  page-navigation: true
+  page-footer: "Copyright 2023, Sven Rieger"
+  reader-mode: true
+  navbar:
+    pinned: true
+    left:
+      - href: index.qmd
+        text: "Home"
+      - href: data-proc.qmd
+        text: "Data processing"
+      - href: measure-mod.qmd
+        text: "Measurement Models"
+      - href: stat-mod.qmd
+        text: "Statistical Models"
+      - href: simulations.qmd
+        text: "Simulations"
+      - href: visualizations.qmd
+        text: "Visualizations"
+      - about.qmd
+  sidebar:
+    - title: "Home"
+      style: "docked"
+      background: light
+      contents:
+        - index.qmd
+        - index-content.qmd
+        - index-software.qmd
+    - title: "Data processing"
+      style: "docked"
+      background: light
+      contents:
+        - data-proc.qmd
+        - href: data-proc-func-loops.qmd
+        - href: data-proc-nam-lists.qmd
+        - href: data-proc-recode.qmd
+    - title:  "Measurement Models"
+      style: "docked"
+      background: light
+      contents:
+        - measure-mod.qmd
+        - measure-mod-sem.qmd
+        - measure-mod-irt.qmd
+    - title:  "Statistical Models"
+      style: "docked"
+      background: light
+      contents:
+        - stat-mod.qmd
+    - title: "Simulations"
+      style: "docked"
+      background: light
+      contents:
+        - simulations.qmd
+        - simulations-how-to-start.qmd
+        - simulations-setup.qmd
+        - simulations-parallel.qmd
+    - title: "Visualizations"
+      style: "docked"
+      background: light
+      contents:
+        - visualizations.qmd
+        - visualizations-hist-bar.qmd
+        - visualizations-scatter.qmd
+    - title: "About"
+      style: "docked"
+      background: light
+      contents:
+        - about.qmd
+        - about-sven.qmd
+        - about-n.n.qmd
+
+format:
+  html:
+    theme:
+      light: simplex
+      dark: darkly
+    css: styles.css
+    toc: true
+
+
+bibliography: [r-refs.bib, references.bib]

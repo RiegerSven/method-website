@@ -1,0 +1,75 @@
+---
+title: "Measurement Models"
+---
+
+:::{.callout-warning}
+This page is work in progress.
+:::
+
+> Measurement is more than just the assignment of numbers according to rules (i.e., labeling); it is a process by which an attempt is made to understand the nature of a variable (Bridgman, 1928)
+
+
+> Thus, a latent variable model is simply a model that relates the expectation
+of observables to a latent structure through some regression function. [@Borsboom2008, p.27]
+
+
+|           | Latent structure | Observables      |
+|:----------|:----------------:|:----------------:|
+| IRT model    | continuous        | categorical      |
+| Factor model | continuous        | continuous       |
+
+<!--
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-oe15{background-color:#ffffff;border-color:#ffffff;text-align:left;vertical-align:top}
+.tg .tg-7eit{background-color:#ffffff;border-color:#ffffff;text-align:center;vertical-align:middle}
+.tg .tg-wk8r{background-color:#ffffff;border-color:#ffffff;text-align:center;vertical-align:top}
+</style>
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-oe15" colspan="2"></th>
+    <th class="tg-wk8r" colspan="2">Latent structure</th>
+    <th class="tg-oe15" rowspan="2"></th>
+  </tr>
+  <tr>
+    <th class="tg-oe15" colspan="2"></th>
+    <th class="tg-wk8r">categorical</th>
+    <th class="tg-oe15">continuous</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-7eit" rowspan="2">Observables</td>
+    <td class="tg-wk8r">categorical</td>
+    <td class="tg-wk8r">Mixture model/Latent class model</td>
+    <td class="tg-oe15">IRT model</td>
+    <td class="tg-wk8r">&gt; Item response theory</td>
+  </tr>
+  <tr>
+    <td class="tg-wk8r">continuous<br></td>
+    <td class="tg-wk8r">Latent profile model<br></td>
+    <td class="tg-oe15">Factor model</td>
+    <td class="tg-wk8r">&gt; Classical test theory</td>
+  </tr>
+</tbody>
+</table>
+
+-->
+
+## Measurement invariance / Differential item functioning
+
+### Types of measurement invariance
+
+| Type/Levels | Description | 
+|:------------|:----------------:|
+| Configuralinvariance (baseline) | the same variables define each latent variable across groups/time points       |
+| Weak factorial invariance | restricted factor loadings across groups/timepoints        |
+| Strong factorial invariance | restricted factor loadings and intercepts across groups/time points |
+|Strict factorial invariance | restricted factor loadings, intercepts and error variances across groups/time points|
+
+## References

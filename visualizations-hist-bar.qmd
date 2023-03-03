@@ -1,0 +1,15 @@
+---
+title: "Histogramms and Barplots"
+published-title: "Last update on"
+date: today
+---
+
+:::{.callout-warning}
+This page is work in progress.
+:::
+
+## Overview
+
+
+
+## References

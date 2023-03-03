@@ -1,0 +1,201 @@
+---
+title: "Recode (many) variables"
+author: "Sven Rieger"
+published-title: "Last update on"
+date: today
+---
+
+Recoding variables is ...
+For example, psychological measures often contain so-called reversed formulated items. Moreover, sometimes it is necessary to condense categories.
+
+::: {.callout-caution collapse="true" appearance="simple"}
+## If you need example data, here is some simulated data. {#sim-3dim}
+
+The data generating process follows 3-dimensional confirmatory factor analyses model with categorical indicators. Each latent variable ($\eta_1,\eta_2, \eta_3$) is measured by 4 ordered categorical indicators. The last items (i.e., $Y_4$, $Z_4$, and $W_4$) should be recoded (indicated by a negative factorloading).
+
+For data generation, we used the `simulateData` function of the `lavaan` package [@R-lavaan]. If you are interested in simulating data, please see [here](#simulations.qmd).
+
+```{r}
+#| label: sim-3dim-1
+
+PopMod3dim <- "
+
+eta1 =~ .8*Y1 + .8*Y2 + .8*Y3 + -.8*Y4
+eta2 =~ .8*Z1 + .8*Z2 + .8*Z3 + -.8*Z4
+eta3 =~ .8*W1 + .8*W2 + .8*W3 + -.8*W4
+
+Y1 | -1*t1 + 0*t2 + 1*t3
+Y2 | -1*t1 + 0*t2 + 1*t3
+Y3 | -1*t1 + 0*t2 + 1*t3
+Y4 | 1*t1 + 0*t2 + -1*t3
+
+Z1 | -1*t1 + 0*t2 + 1*t3
+Z2 | -1*t1 + 0*t2 + 1*t3
+Z3 | -1*t1 + 0*t2 + 1*t3
+Z4 | 1*t1 + 0*t2 + -1*t3
+
+W1 | -1*t1 + 0*t2 + 1*t3
+W2 | -1*t1 + 0*t2 + 1*t3
+W3 | -1*t1 + 0*t2 + 1*t3
+W4 | 1*t1 + 0*t2 + -1*t3
+
+eta1 ~~ 1*eta1 + .3*eta2 + .3*eta3
+eta2 ~~ 1*eta2 + .3*eta3
+eta3 ~~ 1*eta3
+"
+
+```
+
+```{r}
+#| label: sim-3dim-2
+
+dat3dim <- lavaan::simulateData(PopMod3dim,
+                                sample.nobs = 1000,
+                                seed = 999)
+
+head(dat3dim)
+```
+
+
+The correlation matrix of the data is depicted in @tbl-3dim-dat.
+
+```{r}
+#| label: tbl-3dim-dat
+#| tbl-cap: Correlation matrix of the generated data
+knitr::kable(
+  x = cor(dat3dim),
+  digits = 3) |>
+  kableExtra::kable_paper()
+```
+
+
+:::
+
+
+
+## Recode one variable
+
+Before recoding the variables, we should check them (e.g., how many categories?). This can be done using e.g., the `table` function (when the variables are ordinal/ordered categorical variables).
+
+```{r}
+#| label: check-recode-1
+
+with(dat3dim, table(Y4))
+```
+
+In R there are many different options to recode variables. 
+Below are two examples.
+
+::: {.panel-tabset}
+
+### Approach 1: recode (car) 
+
+In this approach, we use the `recode` function of the `car` package [@R-car]. This function needs at least 2 inputs (copied from the package description):
+
+- `var`: numeric vector, character vector, or factor.
+- `recodes`: character string of recode specifications
+
+There are further additional arguments such as `as.factor` and `as.numeric` which direct the class of the output.
+
+The code is as follows:
+
+```{r}
+#| label: recode-y4
+dat3dim$Y4r1 <- car::recode(var = dat3dim$Y4,
+                            recodes = "
+                            1 = 4;
+                            2 = 3;
+                            3 = 2;
+                            4 = 1;",
+                            as.factor = FALSE)
+```
+
+A quick double check.
+
+```{r}
+#| label: check-recode-2-1
+with(dat3dim, table(Y4, Y4r1))
+```
+
+
+### Approach 2: Number of categories
+
+::: {.callout-warning}
+Note that this approach is not very robust across different recoding strategies. However, for recoding lickert items that are coded like in this example, it is a convenient approach.
+:::
+
+In this approach, we subtract the variable $Y_4$ from the number of categories + 1 (here there are 4 categories 1 to 4).
+
+```{r}
+#| label: recode-y4-2
+dat3dim$Y4r2 <- 5 - dat3dim$Y4
+```
+
+A quick double check.
+
+```{r}
+#| label: check-recode-2-2
+with(dat3dim, table(Y4, Y4r2))
+```
+
+:::
+
+
+## Recode many variables
+
+If there are more variables that need to be recoded, you should use loops (see [here](data-proc-func-loops.qmd#Loops)). For this purpose, it is useful to work with character vector and lists (see [here](data-proc-nam-lists.qmd)).
+
+The procedure encompasses 3 steps:
+
+1. Generate a character vector (here: `toRec`) of items that must be recoded. 
+
+```{r}
+#| label: recode-list-1
+toRec <- c("Y4", "Z4", "W4")
+```
+
+2. In addition, we generate a character vector (here: `recoded`) that contains the item names of the recoded variables. To concatenated all item names with "r", we use the `paste0` function. 
+
+```{r}
+#| label: recode-list-2
+recoded <- paste0(toRec, "r")
+recoded
+```
+
+3. Now, we use a loop (`sapply`) to iteratively recode all variables.
+
+```{r}
+#| label: recode-loop
+dat3dim[,recoded] <- sapply(dat3dim[,toRec],
+                            function(x) 
+                              car::recode(var = x,
+                                          recodes = "
+                                          1 = 4;
+                                          2 = 3;
+                                          3 = 2;
+                                          4 = 1;",
+                                          as.factor = FALSE)
+                            )
+```
+
+Again, a double check.
+
+```{r}
+#| label: recode-loop-check
+
+lapply(1:length(recoded),
+       function(x) table(dat3dim[,toRec[x]], dat3dim[,recoded[x]])
+       )
+```
+
+```{r}
+#| label: save3dim
+#| echo: false
+#| eval: false
+
+saveRDS(dat3dim,
+        file = "dat3dim.RDS")
+```
+
+
+## References

@@ -1,0 +1,6 @@
+---
+title: "Parallel Computing"
+published-title: "Last update on"
+date: today
+---
+

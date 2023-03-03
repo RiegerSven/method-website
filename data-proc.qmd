@@ -1,0 +1,12 @@
+---
+title: "Data processing"
+---
+
+
+:::{.callout-warning}
+This page is work in progress.
+:::
+
+Data (pre)processing is the initial phase of data analyses. Depended on the specific task and the scope, it can be quite time consuming. This step is central because it directly affect the quality of the data and hence, needs to be performed thoroughly.
+
+## References
