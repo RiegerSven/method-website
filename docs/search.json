@@ -53,14 +53,14 @@
     "href": "data-proc-func-loops.html",
     "title": "Functions and Loops",
     "section": "",
-    "text": "Writing functions is the best way to enhance your data processing skills. Functions allow you to automate tasks that are needed to be repeated more than 2-times. This sections gives a brief introduction in writing your own functions. There are other sources that cover this topic in much more detail (see R for Data Science by Hadley Wickham & Garrett Grolemund).\nExample: We want to calculate the mean, standard deviation and range of two variables.\nThe copy/paste way.\n\nx <- rnorm(50)\ny <- rnorm(50)\n\nmean(x)\nsd(x)\nrange(x)\n\nmean(y)\nsd(y)\nrange(y)\n\nLets put it a function.\n\nPick a name for the function (here: myFirstFunction)\nDefine the inputs and arguments of the function. These are written within the regular brackets (...) (here the input is: variable)\nWrite the code in the body of the function which is between the curly brackets { }.\n\nCalculate the mean, the standard deviation and the range\nStore it in a named list (for what a named list is useful see below)\nreturn the named list\n\n\n\nmyFirstFunction <- function ( variable ) {\n  \n  fMEAN <- mean(variable)\n  fSD <- sd(variable)\n  fRANGE <- range(variable)\n  \n  fOut <- c(\"Mean\" = fMEAN,\n            \"SD\" = fSD,\n            \"Min\" = fRANGE[1],\n            \"Max\" = fRANGE[2])\n  \n  return(fOut)\n  \n}\n\n\nmyFirstFunction(variable = x)\n\n      Mean         SD        Min        Max \n 0.2304824  1.0647725 -2.1848934  3.2918328"
+    "text": "Writing functions is the best way to enhance your data processing skills. Functions allow you to automate tasks that are needed to be repeated more than 2-times. This sections gives a brief introduction in writing your own functions. There are other sources that cover this topic in much more detail (see R for Data Science by Hadley Wickham & Garrett Grolemund).\nExample: We want to calculate the mean, standard deviation and range of two variables.\nThe copy/paste way.\n\nx <- rnorm(50)\ny <- rnorm(50)\n\nmean(x)\nsd(x)\nrange(x)\n\nmean(y)\nsd(y)\nrange(y)\n\nLets put it a function.\n\nPick a name for the function (here: myFirstFunction)\nDefine the inputs and arguments of the function. These are written within the regular brackets (...) (here the input is: variable)\nWrite the code in the body of the function which is between the curly brackets { }.\n\nCalculate the mean, the standard deviation and the range\nStore it in a named list (for what a named list is useful see below)\nreturn the named list\n\n\n\nmyFirstFunction <- function ( variable ) {\n  \n  fMEAN <- mean(variable)\n  fSD <- sd(variable)\n  fRANGE <- range(variable)\n  \n  fOut <- c(\"Mean\" = fMEAN,\n            \"SD\" = fSD,\n            \"Min\" = fRANGE[1],\n            \"Max\" = fRANGE[2])\n  \n  return(fOut)\n  \n}\n\n\nmyFirstFunction(variable = x)\n\n      Mean         SD        Min        Max \n-0.1308194  1.0130255 -2.7084323  2.9861202"
   },
   {
     "objectID": "data-proc-func-loops.html#loops",
     "href": "data-proc-func-loops.html#loops",
     "title": "Functions and Loops",
     "section": "Loops",
-    "text": "Loops\nsome text about loops\nTo execute the function on both variables…\n\nApproach 1: apply familyApproach 2: for loop\n\n\n\nsapply(list(x, y),\n       function(myVar) myFirstFunction(variable = myVar),\n       simplify = F)\n\n[[1]]\n      Mean         SD        Min        Max \n 0.2304824  1.0647725 -2.1848934  3.2918328 \n\n[[2]]\n      Mean         SD        Min        Max \n-0.1828629  1.0215406 -2.8559277  2.6068680 \n\n\n\n\n\nfor (myvar in list(x,y)) {\n  print(\n    myFirstFunction(variable = myvar)\n  )\n}\n\n      Mean         SD        Min        Max \n 0.2304824  1.0647725 -2.1848934  3.2918328 \n      Mean         SD        Min        Max \n-0.1828629  1.0215406 -2.8559277  2.6068680"
+    "text": "Loops\nsome text about loops\nTo execute the function on both variables…\n\nApproach 1: apply familyApproach 2: for loop\n\n\n\nsapply(list(x, y),\n       function(myVar) myFirstFunction(variable = myVar),\n       simplify = F)\n\n[[1]]\n      Mean         SD        Min        Max \n-0.1308194  1.0130255 -2.7084323  2.9861202 \n\n[[2]]\n       Mean          SD         Min         Max \n 0.07319752  0.87857800 -1.86435919  1.74200653 \n\n\n\n\n\nfor (myvar in list(x,y)) {\n  print(\n    myFirstFunction(variable = myvar)\n  )\n}\n\n      Mean         SD        Min        Max \n-0.1308194  1.0130255 -2.7084323  2.9861202 \n       Mean          SD         Min         Max \n 0.07319752  0.87857800 -1.86435919  1.74200653"
   },
   {
     "objectID": "data-proc-nam-lists.html",
@@ -151,7 +151,7 @@
     "href": "index.html",
     "title": "Home",
     "section": "",
-    "text": "Warning\n\n\n\nThis page is work in progress.\n\n\nThis website is designed to support researchers.\nIf you want to contribute, please let us know."
+    "text": "Warning\n\n\n\nThis page is work in progress.\n\n\nThe website is build with Quarto.\nIf you want to contribute, please let us know."
   },
   {
     "objectID": "measure-mod-sem.html",
