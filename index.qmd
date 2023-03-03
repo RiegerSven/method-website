@@ -10,7 +10,8 @@ This page is work in progress.
 
 The website is build with [Quarto](quarto.org).
 
-
+Found errors or any bugs? Please send me a email or report them github.com.
+ 
 If you want to contribute, please let us know.
 
 
