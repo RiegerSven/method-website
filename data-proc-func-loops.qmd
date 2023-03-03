@@ -19,6 +19,7 @@ The copy/paste way.
 #| label: own-function-1
 #| results: hide
 
+set.seed(999)
 
 x <- rnorm(50)
 y <- rnorm(50)

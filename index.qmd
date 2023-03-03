@@ -8,7 +8,7 @@ This page is work in progress.
 
 
 
-The website is build with Quarto.
+The website is build with [Quarto](quarto.org).
 
 
 If you want to contribute, please let us know.
