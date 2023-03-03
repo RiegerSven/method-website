@@ -9,7 +9,9 @@ website:
     type: overlay
     copy-button: true
   page-navigation: true
-  page-footer: "Copyright 2023, Sven Rieger"
+  page-footer:
+    left: "The website is build with [Quarto](quarto.org)."
+    right: "Licence: XX"
   reader-mode: true
   navbar:
     pinned: true
