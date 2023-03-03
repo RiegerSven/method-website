@@ -4,6 +4,8 @@ project:
 website:
   title: "METHODS MATTER"
   open-graph: true
+  repo-url: https://github.com/RiegerSven/method-website/
+  repo-actions: [edit, issue]
   search:
     location: navbar
     type: overlay
