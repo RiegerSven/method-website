@@ -1,0 +1,261 @@
+[
+  {
+    "objectID": "about-n.n.html",
+    "href": "about-n.n.html",
+    "title": "n.n.",
+    "section": "",
+    "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+  },
+  {
+    "objectID": "about-n.n.html#education",
+    "href": "about-n.n.html#education",
+    "title": "n.n.",
+    "section": "Education",
+    "text": "Education\n…"
+  },
+  {
+    "objectID": "about-n.n.html#experience",
+    "href": "about-n.n.html#experience",
+    "title": "n.n.",
+    "section": "Experience",
+    "text": "Experience\n…"
+  },
+  {
+    "objectID": "about-sven.html",
+    "href": "about-sven.html",
+    "title": "Sven Rieger",
+    "section": "",
+    "text": "Sven Rieger is a research scientist at the Hector Research Institute of Education Sciences and Psychology. His research interests comprise the interplay of motivational factors and personality traits. Moreover, he is interested in longitudinal data modeling and causal inference."
+  },
+  {
+    "objectID": "about-sven.html#education",
+    "href": "about-sven.html#education",
+    "title": "Sven Rieger",
+    "section": "Education",
+    "text": "Education\n\nPhD in Psychology (Dr.rer.nat) | 2014 - 2018 University of Tübingen\nStudies of Education Sciences and Psychology (M.Sc.) | 2012 - 2014 University of Tübingen\nStudies of Education (B.A.) | 2009 - 2012 University of Tübingen"
+  },
+  {
+    "objectID": "about-sven.html#experience",
+    "href": "about-sven.html#experience",
+    "title": "Sven Rieger",
+    "section": "Experience",
+    "text": "Experience\n…"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "This is an overview of the people who contributed to this page.\n\nSven Rieger, Research scientist at the Hector Research Institute of Education Sciences and Psychology at the University of Tübingen\nn.n., Research scientist at the Hector Research Institute of Education Sciences and Psychology at the University of Tübingen"
+  },
+  {
+    "objectID": "data-proc-func-loops.html",
+    "href": "data-proc-func-loops.html",
+    "title": "Functions and Loops",
+    "section": "",
+    "text": "Writing functions is the best way to enhance your data processing skills. Functions allow you to automate tasks that are needed to be repeated more than 2-times. This sections gives a brief introduction in writing your own functions. There are other sources that cover this topic in much more detail (see R for Data Science by Hadley Wickham & Garrett Grolemund).\nExample: We want to calculate the mean, standard deviation and range of two variables.\nThe copy/paste way.\n\nx <- rnorm(50)\ny <- rnorm(50)\n\nmean(x)\nsd(x)\nrange(x)\n\nmean(y)\nsd(y)\nrange(y)\n\nLets put it a function.\n\nPick a name for the function (here: myFirstFunction)\nDefine the inputs and arguments of the function. These are written within the regular brackets (...) (here the input is: variable)\nWrite the code in the body of the function which is between the curly brackets { }.\n\nCalculate the mean, the standard deviation and the range\nStore it in a named list (for what a named list is useful see below)\nreturn the named list\n\n\n\nmyFirstFunction <- function ( variable ) {\n  \n  fMEAN <- mean(variable)\n  fSD <- sd(variable)\n  fRANGE <- range(variable)\n  \n  fOut <- c(\"Mean\" = fMEAN,\n            \"SD\" = fSD,\n            \"Min\" = fRANGE[1],\n            \"Max\" = fRANGE[2])\n  \n  return(fOut)\n  \n}\n\n\nmyFirstFunction(variable = x)\n\n       Mean          SD         Min         Max \n 0.09344227  0.89749128 -1.73832076  1.84307915"
+  },
+  {
+    "objectID": "data-proc-func-loops.html#loops",
+    "href": "data-proc-func-loops.html#loops",
+    "title": "Functions and Loops",
+    "section": "Loops",
+    "text": "Loops\nsome text about loops\nTo execute the function on both variables…\n\nApproach 1: apply familyApproach 2: for loop\n\n\n\nsapply(list(x, y),\n       function(myVar) myFirstFunction(variable = myVar),\n       simplify = F)\n\n[[1]]\n       Mean          SD         Min         Max \n 0.09344227  0.89749128 -1.73832076  1.84307915 \n\n[[2]]\n       Mean          SD         Min         Max \n 0.03679277  0.89117156 -2.05798077  1.90855900 \n\n\n\n\n\nfor (myvar in list(x,y)) {\n  print(\n    myFirstFunction(variable = myvar)\n  )\n}\n\n       Mean          SD         Min         Max \n 0.09344227  0.89749128 -1.73832076  1.84307915 \n       Mean          SD         Min         Max \n 0.03679277  0.89117156 -2.05798077  1.90855900"
+  },
+  {
+    "objectID": "data-proc-nam-lists.html",
+    "href": "data-proc-nam-lists.html",
+    "title": "(Named) Lists & character vectors",
+    "section": "",
+    "text": "During the last years, I heavily rely on using (named) lists and/or character vectors. What is a character or a character vector? A character is a string It is created using single quotes or double quotes.\nIt is possible to combine (c(...)) multiple characters into a vector or a list."
+  },
+  {
+    "objectID": "data-proc-nam-lists.html#named-lists",
+    "href": "data-proc-nam-lists.html#named-lists",
+    "title": "(Named) Lists & character vectors",
+    "section": "(Named) Lists",
+    "text": "(Named) Lists\nWhat is a list in R? Lists are objects which contain any type of other R objects (e.g., characters, numeric inputs).\n\nmyList <- list(myChr,\n               \"Hi Iam another string\",\n               3)\n\nSometimes1 it is advisable to name the list elements.\n\nmyNamedList <- list(MyChr = myChr,\n                    String3 = \"Hi Iam another string\",\n                    \"Number 3\" = 3)\n\nnames(myNamedList) <- c(\"MyChr\", \"String3\", \"Number 3\")\n\nOr alternatively.\n\nnames(myList) <- c(\"MyChr\", \"String3\", \"Number 3\")"
+  },
+  {
+    "objectID": "data-proc-nam-lists.html#create-chr-vec",
+    "href": "data-proc-nam-lists.html#create-chr-vec",
+    "title": "(Named) Lists & character vectors",
+    "section": "Creating character vectors",
+    "text": "Creating character vectors\nThe paste and paste0 functions are extremely powerful functions. They convert R objects to character vectors. With the sep= and collapse= arguments, it is possible to select specific character strings which separates/collapse the objects. It is important to note that the functions behave slightly different (see here). The focus here is on paste0 which sets sep=\"\".\nmyName <- \"John Doe\"\n\npaste0(c(\"hello, my name is \", myName), collapse = \" <3 \")\n[1] “hello, my name is <3 John Doe”\nWe can use the paste0 function to create the names of the variables (of a measure)2. The variable names should follow a precise structure3 see Table 1.\n\n\nTable 1: Overview of the Structure of Variable Names\n\n\n\n\n\n\n\nAbbreviation of measure\nItem Number\nMeasurement occasion\n\n\n\n\nSelf-concept > sc\n1\nT1\n\n\nSelf-concept > sc\n2\nT1\n\n\nSelf-concept > sc\n3\nT1\n\n\nSelf-concept > sc\n1\nT2\n\n\nSelf-concept > sc\n2\nT2\n\n\n…\n…\n…\n\n\n\n\npaste0 function\n\nlist(\"ScT1\" = paste0(\"sc\", 1:3, \"T1\"),\n     \"ScT2\" = paste0(\"sc\", 1:3, \"T2\"))\n\n$ScT1\n[1] \"sc1T1\" \"sc2T1\" \"sc3T1\"\n\n$ScT2\n[1] \"sc1T2\" \"sc2T2\" \"sc3T2\"\n\n\nIf you are really laze you could also write.\n\npaste0(\"sc\", 1:3, rep(paste0(\"T\", 1:2), each = 3))\n\n[1] \"sc1T1\" \"sc2T1\" \"sc3T1\" \"sc1T2\" \"sc2T2\" \"sc3T2\""
+  },
+  {
+    "objectID": "data-proc-recode.html",
+    "href": "data-proc-recode.html",
+    "title": "Recode (many) variables",
+    "section": "",
+    "text": "Recoding variables is … For example, psychological measures often contain so-called reversed formulated items. Moreover, sometimes it is necessary to condense categories."
+  },
+  {
+    "objectID": "data-proc-recode.html#recode-one-variable",
+    "href": "data-proc-recode.html#recode-one-variable",
+    "title": "Recode (many) variables",
+    "section": "Recode one variable",
+    "text": "Recode one variable\nBefore recoding the variables, we should check them (e.g., how many categories?). This can be done using e.g., the table function (when the variables are ordinal/ordered categorical variables).\n\nwith(dat3dim, table(Y4))\n\nY4\n  1   2   3   4 \n150 370 321 159 \n\n\nIn R there are many different options to recode variables. Below are two examples.\n\nApproach 1: recode (car)Approach 2: Number of categories\n\n\nIn this approach, we use the recode function of the car package (Fox, Weisberg, and Price 2022). This function needs at least 2 inputs (copied from the package description):\n\nvar: numeric vector, character vector, or factor.\nrecodes: character string of recode specifications\n\nThere are further additional arguments such as as.factor and as.numeric which direct the class of the output.\nThe code is as follows:\n\ndat3dim$Y4r1 <- car::recode(var = dat3dim$Y4,\n                            recodes = \"\n                            1 = 4;\n                            2 = 3;\n                            3 = 2;\n                            4 = 1;\",\n                            as.factor = FALSE)\n\nA quick double check.\n\nwith(dat3dim, table(Y4, Y4r1))\n\n   Y4r1\nY4    1   2   3   4\n  1   0   0   0 150\n  2   0   0 370   0\n  3   0 321   0   0\n  4 159   0   0   0\n\n\n\n\n\n\n\n\n\n\nWarning\n\n\n\nNote that this approach is not very robust across different recoding strategies. However, for recoding lickert items that are coded like in this example, it is a convenient approach.\n\n\nIn this approach, we subtract the variable \\(Y_4\\) from the number of categories + 1 (here there are 4 categories 1 to 4).\n\ndat3dim$Y4r2 <- 5 - dat3dim$Y4\n\nA quick double check.\n\nwith(dat3dim, table(Y4, Y4r2))\n\n   Y4r2\nY4    1   2   3   4\n  1   0   0   0 150\n  2   0   0 370   0\n  3   0 321   0   0\n  4 159   0   0   0"
+  },
+  {
+    "objectID": "data-proc-recode.html#recode-many-variables",
+    "href": "data-proc-recode.html#recode-many-variables",
+    "title": "Recode (many) variables",
+    "section": "Recode many variables",
+    "text": "Recode many variables\nIf there are more variables that need to be recoded, you should use loops (see here). For this purpose, it is useful to work with character vector and lists (see here).\nThe procedure encompasses 3 steps:\n\nGenerate a character vector (here: toRec) of items that must be recoded.\n\n\ntoRec <- c(\"Y4\", \"Z4\", \"W4\")\n\n\nIn addition, we generate a character vector (here: recoded) that contains the item names of the recoded variables. To concatenated all item names with “r”, we use the paste0 function.\n\n\nrecoded <- paste0(toRec, \"r\")\nrecoded\n\n[1] \"Y4r\" \"Z4r\" \"W4r\"\n\n\n\nNow, we use a loop (sapply) to iteratively recode all variables.\n\n\ndat3dim[,recoded] <- sapply(dat3dim[,toRec],\n                            function(x) \n                              car::recode(var = x,\n                                          recodes = \"\n                                          1 = 4;\n                                          2 = 3;\n                                          3 = 2;\n                                          4 = 1;\",\n                                          as.factor = FALSE)\n                            )\n\nAgain, a double check.\n\nlapply(1:length(recoded),\n       function(x) table(dat3dim[,toRec[x]], dat3dim[,recoded[x]])\n       )\n\n[[1]]\n   \n      1   2   3   4\n  1   0   0   0 150\n  2   0   0 370   0\n  3   0 321   0   0\n  4 159   0   0   0\n\n[[2]]\n   \n      1   2   3   4\n  1   0   0   0 145\n  2   0   0 357   0\n  3   0 339   0   0\n  4 159   0   0   0\n\n[[3]]\n   \n      1   2   3   4\n  1   0   0   0 168\n  2   0   0 332   0\n  3   0 341   0   0\n  4 159   0   0   0"
+  },
+  {
+    "objectID": "data-proc.html",
+    "href": "data-proc.html",
+    "title": "Data processing",
+    "section": "",
+    "text": "Warning\n\n\n\nThis page is work in progress.\nData (pre)processing is the initial phase of data analyses. Depended on the specific task and the scope, it can be quite time consuming. This step is central because it directly affect the quality of the data and hence, needs to be performed thoroughly."
+  },
+  {
+    "objectID": "data-proc.html#references",
+    "href": "data-proc.html#references",
+    "title": "Data processing",
+    "section": "References",
+    "text": "References"
+  },
+  {
+    "objectID": "index-content.html",
+    "href": "index-content.html",
+    "title": "Content Overview",
+    "section": "",
+    "text": "Warning\n\n\n\nThis page is work in progress.\nThe website encompasses the following topics:"
+  },
+  {
+    "objectID": "index-software.html",
+    "href": "index-software.html",
+    "title": "Supported Software",
+    "section": "",
+    "text": "The majority of the provided code is from the statistical software R (R Core Team 2022). We use the following R-packages:\n\nCode\npkgList <- c(\"knitr\", \"kableExtra\",\n             \"car\",\n             \"lavaan\",\n             \"ggplot2\",\n             \"MplusAutomation\")\n\n\ncat(paste0(1:length(pkgList), \". \", pkgList,  \" [@R-\", pkgList, \"]\\n\"))\n\n\nknitr (Xie 2022)\nkableExtra (Zhu 2021)\ncar (Fox, Weisberg, and Price 2022)\nlavaan (Rosseel, Jorgensen, and Rockwood 2022)\nggplot2 (Wickham et al. 2022)\nMplusAutomation (Hallquist and Wiley 2022)\n\nYou can install them with the following code:\n\n\nCode\nlapply(pkgList,\n       function(x) \n         if(!x %in% rownames(installed.packages())) install.packages(x))"
+  },
+  {
+    "objectID": "index-software.html#mplus",
+    "href": "index-software.html#mplus",
+    "title": "Supported Software",
+    "section": "Mplus",
+    "text": "Mplus\nLastly, we occasionally provide Mplus (Muthén and Muthén 1998-2021) code For this, however, you need valid license (https://www.statmodel.com/)."
+  },
+  {
+    "objectID": "index-software.html#python",
+    "href": "index-software.html#python",
+    "title": "Supported Software",
+    "section": "Python",
+    "text": "Python\nNot supported yet."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Home",
+    "section": "",
+    "text": "Warning\n\n\n\nThis page is work in progress.\n\n\nThe website is build with Quarto.\nIf you want to contribute, please let us know."
+  },
+  {
+    "objectID": "measure-mod-sem.html",
+    "href": "measure-mod-sem.html",
+    "title": "Confirmatory Factor Analysis (CFA)",
+    "section": "",
+    "text": "To estimate the model, we use the data which is simulated here. Thereby, we use the observed variables \\(Y_1,...Y_{4r}\\)) to construe a latent variable (\\(\\eta\\)).\n\nLavaanMplus\n\n\nThe basic specification in lavaan is as follows:\n\noneDimCfa <- \"\neta =~ Y1 + Y2 + Y3 + Y4r\n\"\n\nThe (standard) model is identification is done by setting the factorloading of the first item indicator (\\(\\lambda_1\\)) to 1 and the mean of the latent variable (\\(\\eta\\)) to 0. This is referred as mixture of the reference-group and marker-variable method (see below). The model is estimated with the cfa function.\n\n\n\n\n\n\nNote\n\n\n\nSetting the estimator argument to \"MLR\" is not necessary because we use simulated data, but in general it is recommended to use robust maximum-likelihood estimation.\n\n\n\n\n\n\nfitoneDimCfa <- lavaan::cfa(model = oneDimCfa,\n                            data = dat3dim,\n                            estimator = \"MLR\")\n\nRetrieve model results with the summary function. To get \\(R^2\\), fit measures (e.g., \\(\\chi^2, CFI, RMSEA\\) etc.) and the standardized solution, we set the arguments std, rsq and fit to TRUE.\n\nlavaan::summary(fitoneDimCfa,\n                std = TRUE,\n                rsq = TRUE,\n                fit = TRUE)\n\nlavaan 0.6-12 ended normally after 20 iterations\n\n  Estimator                                         ML\n  Optimization method                           NLMINB\n  Number of model parameters                         8\n\n  Number of observations                          1000\n\nModel Test User Model:\n                                              Standard      Robust\n  Test Statistic                                 2.585       2.255\n  Degrees of freedom                                 2           2\n  P-value (Chi-square)                           0.275       0.324\n  Scaling correction factor                                  1.147\n    Yuan-Bentler correction (Mplus variant)                       \n\nModel Test Baseline Model:\n\n  Test statistic                              1484.977    1366.786\n  Degrees of freedom                                 6           6\n  P-value                                        0.000       0.000\n  Scaling correction factor                                  1.086\n\nUser Model versus Baseline Model:\n\n  Comparative Fit Index (CFI)                    1.000       1.000\n  Tucker-Lewis Index (TLI)                       0.999       0.999\n                                                                  \n  Robust Comparative Fit Index (CFI)                         1.000\n  Robust Tucker-Lewis Index (TLI)                            0.999\n\nLoglikelihood and Information Criteria:\n\n  Loglikelihood user model (H0)              -4644.316   -4644.316\n  Scaling correction factor                                  0.813\n      for the MLR correction                                      \n  Loglikelihood unrestricted model (H1)      -4643.023   -4643.023\n  Scaling correction factor                                  0.880\n      for the MLR correction                                      \n                                                                  \n  Akaike (AIC)                                9304.631    9304.631\n  Bayesian (BIC)                              9343.893    9343.893\n  Sample-size adjusted Bayesian (BIC)         9318.485    9318.485\n\nRoot Mean Square Error of Approximation:\n\n  RMSEA                                          0.017       0.011\n  90 Percent confidence interval - lower         0.000       0.000\n  90 Percent confidence interval - upper         0.068       0.062\n  P-value RMSEA <= 0.05                          0.818       0.871\n                                                                  \n  Robust RMSEA                                               0.012\n  90 Percent confidence interval - lower                     0.000\n  90 Percent confidence interval - upper                     0.069\n\nStandardized Root Mean Square Residual:\n\n  SRMR                                           0.007       0.007\n\nParameter Estimates:\n\n  Standard errors                             Sandwich\n  Information bread                           Observed\n  Observed information based on                Hessian\n\nLatent Variables:\n                   Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all\n  eta =~                                                                \n    Y1                1.000                               0.670    0.738\n    Y2                1.061    0.044   24.261    0.000    0.710    0.762\n    Y3                1.078    0.046   23.549    0.000    0.722    0.760\n    Y4r               1.023    0.044   23.190    0.000    0.685    0.735\n\nVariances:\n                   Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all\n   .Y1                0.375    0.022   17.259    0.000    0.375    0.455\n   .Y2                0.364    0.022   16.505    0.000    0.364    0.419\n   .Y3                0.382    0.024   16.049    0.000    0.382    0.423\n   .Y4r               0.399    0.023   17.559    0.000    0.399    0.460\n    eta               0.448    0.031   14.514    0.000    1.000    1.000\n\nR-Square:\n                   Estimate\n    Y1                0.545\n    Y2                0.581\n    Y3                0.577\n    Y4r               0.540\n\n\n\n\nThe basic specification in Mplus is as follows:\n\n\n\n\n\nLittle, Slegers, and Card (2006) describe 3 methods to identify a model:\n\nReference-Group Method: fixing the latent mean and the latent variance\nMarker-Variable Method: fixing intercept and loading of one indicator\nEffects-Coding Method: indicator intercepts sum to 0 the set of loadings sum to average 1\n\n\n\n\n\n\n\nMore information about the effects-coding method.\n\n\n\n\n\n\nThis method uses the effects constraints to provide an optimal balance across the possible indicators to establish the scale for the estimated parameters, where the average intercept is zero, but no individual manifest intercept is fixed to be zero. Similarly, the loading parameters are estimated as an optimal balance around 1.0, but no individual loading is necessarily constrained to be 1.0. This method results in estimates of the latent variances that are the average of the indicators’ variances accounted for by the construct, and the latent means are estimated as optimally weighted averages of the set of indicator means for a given construct. In other words, the estimated latent variances and latent means reflect the observed metric of the indictors, optimally weighted by the degree to which each indicator represents the underlying latent construct. (Little, Slegers, and Card 2006, 63)\n\n\n\n\n\n\n\nRaykov and Marcoulides (2015)\n\n\n\nMeredith (1993)\nMeredith and Teresi (2006)\n\n\n\nHu and Bentler (1999)\nHu and Bentler (1998)\nMcNeish and Wolf (2021)\n\n\n\nTo estimate more than one CFA model, it useful to use loops. To provide all the information, we use character vectors and named lists. To demonstrate how to iteratively estimate many CFA models, the following steps are necessary:\n\nGenerate character vectors of the respective measures\n\n\nYList <- c(paste0(\"Y\",1:3), \"Y4r\")\nZList <- c(paste0(\"Z\",1:3), \"Z4r\")\nWList <- c(paste0(\"W\",1:3), \"W4r\")\n\n\nGenerate a named list\n\n\nscaleList <- list(Y = YList, Z = ZList, W = WList)\nscaleList\n\n$Y\n[1] \"Y1\"  \"Y2\"  \"Y3\"  \"Y4r\"\n\n$Z\n[1] \"Z1\"  \"Z2\"  \"Z3\"  \"Z4r\"\n\n$W\n[1] \"W1\"  \"W2\"  \"W3\"  \"W4r\"\n\n\n\nWrite a function\n\n\nestCFA <- function ( items, data ) {\n  \n  # make code with paste0\n  Mod <- paste0(\"eta\", \" =~ \",\n                paste0(\"f\",1:length(items), \"*\",\n                       items, collapse = \" + \"))\n  \n  # estimate the model\n  fitMod <- lavaan::cfa(model = Mod,\n                        data = data,\n                        estimator = \"ML\")\n  \n  # extract whatever you want to display\n  parm <- lavaan::parameterestimates(fitMod)\n  parm <- parm[parm$label != \"\", c(\"rhs\", \"est\", \"se\")]\n  \n  fitM <- lavaan::fitmeasures(fitMod)\n  fitM <- fitM[c(\"CFI\", \"RMSEA\")]\n  \n  # return\n  fOut <- list(Parameters = parm,\n               FitMeasures = fitM,\n               FittedObj = fitMod)\n  return(fOut)\n  \n  \n}\n\n\ninvisible(\nlapply(names(scaleList),\n       function(x) {\n         tempOut <- estCFA(items = scaleList[[x]],\n                           data = dat3dim)\n         print(\n         knitr::kable(\n           x = tempOut$Parameters,\n           caption = paste0(\"Factorloadings of measure\", x),\n           col.names = c(\"Item\", \"$\\\\lambda$\", \"SE\"),\n           align = c(\"r\", rep(\"c\", 2)),\n           digits = 3\n         ) |>\n           kableExtra::kable_paper() |>\n           kableExtra::add_footnote(\"Fitmeasures\")\n         )}))\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFactorloadings of measureY\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nItem\n\n\n\n\n\n\n\n\n\\(\\lambda\\)\n\n\n\n\n\n\n\n\nSE\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nY1\n\n\n\n\n\n\n\n\n\n1.000\n\n\n\n\n\n\n\n\n\n0.000\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nY2\n\n\n\n\n\n\n\n\n1.061\n\n\n\n\n\n\n\n\n0.049\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nY3\n\n\n\n\n\n\n\n\n\n1.078\n\n\n\n\n\n\n\n\n\n0.050\n\n\n\n\n\n\n\n\n\n\n\n\nY4r\n\n\n\n\n\n\n\n\n\n1.023\n\n\n\n\n\n\n\n\n\n0.049\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\na Fitmeasures\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFactorloadings of measureZ\n\n\n\n\n\n\n\n\n\n\n\n\nItem\n\n\n\n\n\n\n\n\n\n\\(\\lambda\\)\n\n\n\n\n\n\n\n\n\nSE\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nZ1\n\n\n\n\n\n\n\n\n\n1.000\n\n\n\n\n\n\n\n\n\n0.000\n\n\n\n\n\n\n\n\n\n\n\n\nZ2\n\n\n\n\n\n\n\n\n\n1.020\n\n\n\n\n\n\n\n\n\n0.047\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nZ3\n\n\n\n\n\n\n\n\n1.009\n\n\n\n\n\n\n\n\n0.047\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nZ4r\n\n\n\n\n\n\n\n\n\n0.969\n\n\n\n\n\n\n\n\n\n0.046\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\na Fitmeasures\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFactorloadings of measureW\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nItem\n\n\n\n\n\n\n\n\n\n\\(\\lambda\\)\n\n\n\n\n\n\n\n\n\nSE\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW1\n\n\n\n\n\n\n\n\n1.000\n\n\n\n\n\n\n\n\n0.000\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW2\n\n\n\n\n\n\n\n\n\n0.994\n\n\n\n\n\n\n\n\n\n0.044\n\n\n\n\n\n\n\n\n\n\n\n\nW3\n\n\n\n\n\n\n\n\n\n1.003\n\n\n\n\n\n\n\n\n\n0.044\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nW4r\n\n\n\n\n\n\n\n\n0.982\n\n\n\n\n\n\n\n\n0.044\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\na Fitmeasures"
+  },
+  {
+    "objectID": "measure-mod-sem.html#multi-dimensional-cfa-models",
+    "href": "measure-mod-sem.html#multi-dimensional-cfa-models",
+    "title": "Confirmatory Factor Analysis (CFA)",
+    "section": "Multi-dimensional CFA models",
+    "text": "Multi-dimensional CFA models"
+  },
+  {
+    "objectID": "measure-mod.html",
+    "href": "measure-mod.html",
+    "title": "Measurement Models",
+    "section": "",
+    "text": "Warning\n\n\n\nThis page is work in progress."
+  },
+  {
+    "objectID": "measure-mod.html#measurement-invariance-differential-item-functioning",
+    "href": "measure-mod.html#measurement-invariance-differential-item-functioning",
+    "title": "Measurement Models",
+    "section": "Measurement invariance / Differential item functioning",
+    "text": "Measurement invariance / Differential item functioning\n\nTypes of measurement invariance\n\n\n\n\n\n\n\nType/Levels\nDescription\n\n\n\n\nConfiguralinvariance (baseline)\nthe same variables define each latent variable across groups/time points\n\n\nWeak factorial invariance\nrestricted factor loadings across groups/timepoints\n\n\nStrong factorial invariance\nrestricted factor loadings and intercepts across groups/time points\n\n\nStrict factorial invariance\nrestricted factor loadings, intercepts and error variances across groups/time points"
+  },
+  {
+    "objectID": "simulations.html",
+    "href": "simulations.html",
+    "title": "Simulations",
+    "section": "",
+    "text": "Warning\n\n\n\nThis page is work in progress."
+  },
+  {
+    "objectID": "simulations.html#references",
+    "href": "simulations.html#references",
+    "title": "Simulations",
+    "section": "References",
+    "text": "References"
+  },
+  {
+    "objectID": "stat-mod.html",
+    "href": "stat-mod.html",
+    "title": "Statistical Models",
+    "section": "",
+    "text": "Warning\n\n\n\nThis page is work in progress.\nBefore looking for the correct statistical model, we highly recommend to think about your theoretical estimand(s) (Lundberg, Johnson, and Stewart 2021)."
+  },
+  {
+    "objectID": "visualizations-hist-bar.html",
+    "href": "visualizations-hist-bar.html",
+    "title": "Histogramms and Barplots",
+    "section": "",
+    "text": "Warning\n\n\n\nThis page is work in progress."
+  },
+  {
+    "objectID": "visualizations-hist-bar.html#overview",
+    "href": "visualizations-hist-bar.html#overview",
+    "title": "Histogramms and Barplots",
+    "section": "Overview",
+    "text": "Overview"
+  },
+  {
+    "objectID": "visualizations-hist-bar.html#references",
+    "href": "visualizations-hist-bar.html#references",
+    "title": "Histogramms and Barplots",
+    "section": "References",
+    "text": "References"
+  },
+  {
+    "objectID": "visualizations-scatter.html",
+    "href": "visualizations-scatter.html",
+    "title": "Visualizations",
+    "section": "",
+    "text": "Warning\n\n\n\nThis page is work in progress."
+  },
+  {
+    "objectID": "visualizations-scatter.html#overview",
+    "href": "visualizations-scatter.html#overview",
+    "title": "Visualizations",
+    "section": "Overview",
+    "text": "Overview"
+  },
+  {
+    "objectID": "visualizations-scatter.html#references",
+    "href": "visualizations-scatter.html#references",
+    "title": "Visualizations",
+    "section": "References",
+    "text": "References"
+  },
+  {
+    "objectID": "visualizations.html",
+    "href": "visualizations.html",
+    "title": "Visualizations",
+    "section": "",
+    "text": "Warning\n\n\n\nThis page is work in progress."
+  },
+  {
+    "objectID": "visualizations.html#references",
+    "href": "visualizations.html#references",
+    "title": "Visualizations",
+    "section": "References",
+    "text": "References"
+  }
+]
