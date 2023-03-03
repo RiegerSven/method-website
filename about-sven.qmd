@@ -10,6 +10,9 @@ about:
     - icon: github
       text: Github
       href: https://github.com/RiegerSven
+    - icon: bag-fill
+      text: University Webpage
+      href: https://uni-tuebingen.de/en/faculties/faculty-of-economics-and-social-sciences/subjects/department-of-social-sciences/education-sciences-and-psychology/institute/staff/rieger-sven-dr/
 ---
 
 
