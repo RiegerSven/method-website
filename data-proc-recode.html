@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Sven Rieger">
-<meta name="dcterms.date" content="2023-03-03">
+<meta name="dcterms.date" content="2023-03-06">
 
 <title>METHODS MATTER - Recode (many) variables</title>
 <style>
@@ -285,7 +285,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Last update on</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">March 3, 2023</p>
+      <p class="date">March 6, 2023</p>
     </div>
   </div>
   
@@ -309,7 +309,7 @@ If you need example data, here is some simulated data.
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The data generating process follows 3-dimensional confirmatory factor analyses model with categorical indicators. Each latent variable (<span class="math inline">\(\eta_1,\eta_2, \eta_3\)</span>) is measured by 4 ordered categorical indicators. The last items (i.e., <span class="math inline">\(Y_4\)</span>, <span class="math inline">\(Z_4\)</span>, and <span class="math inline">\(W_4\)</span>) should be recoded (indicated by a negative factorloading).</p>
-<p>For data generation, we used the <code>simulateData</code> function of the <code>lavaan</code> package <span class="citation" data-cites="R-lavaan">(<a href="#ref-R-lavaan" role="doc-biblioref">Rosseel, Jorgensen, and Rockwood 2022</a>)</span>. If you are interested in simulating data, please see <a href="#simulations.qmd">here</a>.</p>
+<p>For data generation, we used the <code>simulateData</code> function of the <code>lavaan</code> package <span class="citation" data-cites="R-lavaan">(<a href="#ref-R-lavaan" role="doc-biblioref">Rosseel et al., 2022</a>)</span>. If you are interested in simulating data, please see <a href="#simulations.qmd">here</a>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>PopMod3dim <span class="ot">&lt;-</span> <span class="st">"</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -586,7 +586,7 @@ If you need example data, here is some simulated data.
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Approach 1: recode (car)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Approach 2: Number of categories</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<p>In this approach, we use the <code>recode</code> function of the <code>car</code> package <span class="citation" data-cites="R-car">(<a href="#ref-R-car" role="doc-biblioref">Fox, Weisberg, and Price 2022</a>)</span>. This function needs at least 2 inputs (copied from the package description):</p>
+<p>In this approach, we use the <code>recode</code> function of the <code>car</code> package <span class="citation" data-cites="R-car">(<a href="#ref-R-car" role="doc-biblioref">Fox et al., 2022</a>)</span>. This function needs at least 2 inputs (copied from the package description):</p>
 <ul>
 <li><code>var</code>: numeric vector, character vector, or factor.</li>
 <li><code>recodes</code>: character string of recode specifications</li>
@@ -726,12 +726,12 @@ Y4    1   2   3   4
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-line-spacing="2" role="doc-bibliography">
 <div id="ref-R-car" class="csl-entry" role="doc-biblioentry">
-Fox, John, Sanford Weisberg, and Brad Price. 2022. <em>Car: Companion to Applied Regression</em>. <a href="https://CRAN.R-project.org/package=car">https://CRAN.R-project.org/package=car</a>.
+Fox, J., Weisberg, S., &amp; Price, B. (2022). <em>Car: Companion to applied regression</em>. <a href="https://CRAN.R-project.org/package=car">https://CRAN.R-project.org/package=car</a>
 </div>
 <div id="ref-R-lavaan" class="csl-entry" role="doc-biblioentry">
-Rosseel, Yves, Terrence D. Jorgensen, and Nicholas Rockwood. 2022. <em>Lavaan: Latent Variable Analysis</em>. <a href="https://lavaan.ugent.be">https://lavaan.ugent.be</a>.
+Rosseel, Y., Jorgensen, T. D., &amp; Rockwood, N. (2022). <em>Lavaan: Latent variable analysis</em>. <a href="https://lavaan.ugent.be">https://lavaan.ugent.be</a>
 </div>
 </div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -995,7 +995,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">The website is build with <a href="quarto.org">Quarto</a>.</div>   
-    <div class="nav-footer-right">Licence: XX</div>
+      <div class="nav-footer-center">Copyrigh (c) 2023</div>
+    <div class="nav-footer-right">All material is licensed under the MIT License <a href="https://en.wikipedia.org/wiki/MIT_License">(MIT)</a>.</div>
   </div>
 </footer>
 
