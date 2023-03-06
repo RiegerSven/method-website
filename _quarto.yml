@@ -13,7 +13,8 @@ website:
   page-navigation: true
   page-footer:
     left: "The website is build with [Quarto](quarto.org)."
-    right: "Licence: XX"
+    center: "Copyrigh (c) 2023"
+    right: "All material is licensed under the MIT License [(MIT)](https://en.wikipedia.org/wiki/MIT_License)."
   reader-mode: true
   navbar:
     pinned: true
@@ -92,3 +93,4 @@ format:
 
 
 bibliography: [r-refs.bib, references.bib]
+csl: apa7.csl

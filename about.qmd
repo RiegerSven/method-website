@@ -2,7 +2,16 @@
 title: "About"
 ---
 
+## Contributor
+
 This is an overview of the people who contributed to this page.
 
 - [Sven Rieger](about-sven.qmd), Research scientist at the Hector Research Institute of Education Sciences and Psychology at the University of Tübingen
 - [n.n.](about-n.n.qmd), Research scientist at the Hector Research Institute of Education Sciences and Psychology at the University of Tübingen
+
+## Impressum / copyright page
+
+Dr. Sven Rieger
+Europastraße 6
+72072 Tübingen 
+Germany
