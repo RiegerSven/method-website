@@ -11,7 +11,7 @@ This is an overview of the people who contributed to this page.
 
 ## Impressum / copyright page
 
-Dr. Sven Rieger
-Europastraße 6
-72072 Tübingen 
-Germany
+Dr. Sven Rieger<br>
+Europastraße 6<br>
+72072 Tübingen<br>
+Germany<br>
