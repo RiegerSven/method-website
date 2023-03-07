@@ -9,7 +9,7 @@
 <meta name="author" content="Sven Rieger">
 <meta name="dcterms.date" content="2023-03-07">
 
-<title>METHODS MATTER - Functions and Loops</title>
+<title>METHODS MATTER - Computing scale scores</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -85,6 +85,25 @@ code span.st { color: #4070a0; } /* String */
 code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 
@@ -94,8 +113,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./data-proc-nam-lists.html" rel="next">
-<link href="./data-proc.html" rel="prev">
+<link href="./data-proc-recode.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -127,10 +145,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   }
 }</script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="METHODS MATTER - Functions and Loops">
-<meta property="og:description" content="Writing functions is the best way to enhance your data processing skills. Functions allow you to automate tasks that are needed to be repeated more than 2-times.">
+<meta property="og:title" content="METHODS MATTER - Computing scale scores">
+<meta property="og:description" content="some text about scale scores">
 <meta property="og:site-name" content="METHODS MATTER">
 </head>
 
@@ -193,7 +212,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Functions and Loops</h1>
+      <h1 class="quarto-secondary-nav-title">Computing scale scores</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -213,7 +232,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./data-proc-func-loops.html" class="sidebar-item-text sidebar-link active">Functions and Loops</a>
+  <a href="./data-proc-func-loops.html" class="sidebar-item-text sidebar-link">Functions and Loops</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -228,7 +247,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./data-proc-scale-scores.html" class="sidebar-item-text sidebar-link">Computing scale scores</a>
+  <a href="./data-proc-scale-scores.html" class="sidebar-item-text sidebar-link active">Computing scale scores</a>
   </div>
 </li>
     </ul>
@@ -240,17 +259,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#writing-functions" id="toc-writing-functions" class="nav-link active" data-scroll-target="#writing-functions">Writing functions</a></li>
-  <li><a href="#loops" id="toc-loops" class="nav-link" data-scroll-target="#loops">Loops</a></li>
+  <li><a href="#what-is-a-scale-score" id="toc-what-is-a-scale-score" class="nav-link active" data-scroll-target="#what-is-a-scale-score">What is a scale score?</a>
+  <ul class="collapse">
+  <li><a href="#how-to-caluclate-a-scale-score" id="toc-how-to-caluclate-a-scale-score" class="nav-link" data-scroll-target="#how-to-caluclate-a-scale-score">How to caluclate a scale score?</a></li>
+  <li><a href="#calculating-many-scale-scores" id="toc-calculating-many-scale-scores" class="nav-link" data-scroll-target="#calculating-many-scale-scores">Calculating many scale scores</a></li>
+  <li><a href="#generating-a-table" id="toc-generating-a-table" class="nav-link" data-scroll-target="#generating-a-table">Generating a table</a></li>
+  </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/RiegerSven/method-website/edit/main/data-proc-func-loops.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/RiegerSven/method-website/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/RiegerSven/method-website/edit/main/data-proc-scale-scores.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/RiegerSven/method-website/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Functions and Loops</h1>
+<h1 class="title d-none d-lg-block">Computing scale scores</h1>
 </div>
 
 
@@ -277,105 +301,168 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<section id="writing-functions" class="level2">
-<h2 class="anchored" data-anchor-id="writing-functions">Writing functions</h2>
-<p>Writing functions is the best way to enhance your data processing skills. Functions allow you to automate tasks that are needed to be repeated more than 2-times. This sections gives a brief introduction in writing your own functions. There are other sources that cover this topic in much more detail (see <a href="https://r4ds.had.co.nz/functions.html?q=functions#functions">R for Data Science</a> by <a href="https://hadley.nz/">Hadley Wickham</a> &amp; <a href="https://www.rstudio.com/authors/garrett-grolemund/">Garrett Grolemund</a>).</p>
-<p>Example: We want to calculate the mean, standard deviation and range of two variables.</p>
-<p>The copy/paste way.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">999</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">50</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">50</span>)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(x)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(x)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(y)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(y)</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout-warning callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<p>Lets put it a function.</p>
-<ol type="1">
-<li>Pick a name for the function (here: <code>myFirstFunction</code>)</li>
-<li>Define the inputs and arguments of the function. These are written within the regular brackets <code>(...)</code> (here the input is: variable)</li>
-<li>Write the code in the body of the function which is between the curly brackets <code>{ }</code>.
-<ul>
-<li>Calculate the mean, the standard deviation and the range</li>
-<li>Store it in a named list (for what a named list is useful see <a href="#list-chr">below</a>)</li>
-<li><code>return</code> the named list</li>
-</ul></li>
-</ol>
+<div class="callout-caption-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This page is work in progress.</p>
+</div>
+</div>
+<section id="what-is-a-scale-score" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-a-scale-score">What is a scale score?</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>myFirstFunction <span class="ot">&lt;-</span> <span class="cf">function</span> ( variable ) {</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  fMEAN <span class="ot">&lt;-</span> <span class="fu">mean</span>(variable)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  fSD <span class="ot">&lt;-</span> <span class="fu">sd</span>(variable)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  fRANGE <span class="ot">&lt;-</span> <span class="fu">range</span>(variable)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  fOut <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Mean"</span> <span class="ot">=</span> fMEAN,</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>            <span class="st">"SD"</span> <span class="ot">=</span> fSD,</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Min"</span> <span class="ot">=</span> fRANGE[<span class="dv">1</span>],</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Max"</span> <span class="ot">=</span> fRANGE[<span class="dv">2</span>])</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(fOut)</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="fu">myFirstFunction</span>(<span class="at">variable =</span> x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<p>some text about scale scores</p>
+<p><span class="citation" data-cites="Widaman2022">Widaman &amp; Revelle (<a href="#ref-Widaman2022" role="doc-biblioref">2022</a>)</span></p>
+<p><span class="citation" data-cites="McNeish2020">McNeish &amp; Wolf (<a href="#ref-McNeish2020" role="doc-biblioref">2020</a>)</span></p>
+<p><span class="citation" data-cites="Rose2019">Rose et al. (<a href="#ref-Rose2019" role="doc-biblioref">2019</a>)</span></p>
+<section id="how-to-caluclate-a-scale-score" class="level3">
+<h3 class="anchored" data-anchor-id="how-to-caluclate-a-scale-score">How to caluclate a scale score?</h3>
+<p>Before displaying how a scale score is calculated, we generate character vectors and (named) list that contain the names of the items and scales. This is done with the <code>paste0</code> and <code>list</code> functions (see <a href="./data-proc-nam-lists.html">(Named) Lists &amp; character vectors</a>).</p>
+<p>The character vectors…</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>YList <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">paste0</span>(<span class="st">"Y"</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>), <span class="st">"Y4r"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>ZList <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">paste0</span>(<span class="st">"Z"</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>), <span class="st">"Z4r"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>WList <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">paste0</span>(<span class="st">"W"</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>), <span class="st">"W4r"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>… and the named list.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>scaleList <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">Y =</span> YList, <span class="at">Z =</span> ZList, <span class="at">W =</span> WList)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>scaleList</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>      Mean         SD        Min        Max 
--0.2576685  0.9897502 -2.1137370  2.3826642 </code></pre>
+<pre><code>$Y
+[1] "Y1"  "Y2"  "Y3"  "Y4r"
+
+$Z
+[1] "Z1"  "Z2"  "Z3"  "Z4r"
+
+$W
+[1] "W1"  "W2"  "W3"  "W4r"</code></pre>
 </div>
 </div>
-</section>
-<section id="loops" class="level2">
-<h2 class="anchored" data-anchor-id="loops">Loops</h2>
-<p>some text about loops</p>
-<p>To execute the function on both variables…</p>
+<p>Now, we calculate the scale scores (i.e., <span class="math inline">\(Y_{sum}\)</span>, <span class="math inline">\(Y_{avg}\)</span>) of the items <span class="math inline">\(Y_1,...Y_{4r}\)</span>.</p>
 <div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Approach 1: apply family</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Approach 2: for loop</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Approach 1: rowSums</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Approach 2: scoreItems function (package: psych)</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>The <code>rowSums</code> function needs one input (copied from the package description):</p>
+<ul>
+<li><code>x</code>: an array of two or more dimensions, containing numeric, complex, integer or logical values, or a numeric data frame.</li>
+</ul>
+<p>But the <code>na.rm</code> argument needs special attention:</p>
+<ul>
+<li><code>na.rm</code>: logical. Should missing values (including NaN) be omitted from the calculations?</li>
+</ul>
+<p>This argument is important when some items have missing data. The question is: Should the scores be build based on the available items (this procedure is called person mean imputation) or discarded?</p>
+<p><span class="citation" data-cites="Enders2010">Enders (<a href="#ref-Enders2010" role="doc-biblioref">2010</a>)</span> summarizes it as follows (p.51):</p>
+<blockquote class="blockquote">
+<p>Until more research accumulates, you should use person mean imputation with caution and should perhaps avoid it altogether, particularly if there are high rates of item nonresponse.</p>
+</blockquote>
+<p>This means, we set <code>na.rm = FALSE</code>. It is important to note, that there are other options to circumvent this issue <span class="citation" data-cites="Rose2019">Schafer &amp; Graham (<a href="#ref-Schafer2002" role="doc-biblioref">2002</a>)</span></p>
+<ol type="1">
+<li>Calculation of the sum score</li>
+</ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(<span class="fu">list</span>(x, y),</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>       <span class="cf">function</span>(myVar) <span class="fu">myFirstFunction</span>(<span class="at">variable =</span> myVar),</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">simplify =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[[1]]
-      Mean         SD        Min        Max 
--0.2576685  0.9897502 -2.1137370  2.3826642 
-
-[[2]]
-       Mean          SD         Min         Max 
- 0.04328125  0.87849494 -2.06482325  1.74441160 </code></pre>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>dat3dim<span class="sc">$</span>Ysum <span class="ot">&lt;-</span> <span class="fu">rowSums</span>(<span class="at">x =</span> dat3dim[,YList],</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">na.rm =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<ol start="2" type="1">
+<li>Calculation of the average score</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>dat3dim<span class="sc">$</span>Yavg <span class="ot">&lt;-</span> <span class="fu">rowSums</span>(<span class="at">x =</span> dat3dim[,YList],</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">na.rm =</span> <span class="cn">FALSE</span>)<span class="sc">/</span><span class="fu">length</span>(YList)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>To calculate scale scores, you can also use the <code>scoreItems</code> function from the <code>psych</code> package <span class="citation" data-cites="R-psych">(<a href="#ref-R-psych" role="doc-biblioref">Revelle, 2022</a>)</span>.</p>
+<p>The <code>scoreItems</code> function needs at least two inputs (copied from the package description):</p>
+<ul>
+<li><code>keys</code>: list of scoring keys or a matrix or dataframe of -1, 0, or 1 weights for each item on each scale which may be created by hand […]. Here we assign an equal weight (=1) for all items</li>
+<li><code>items</code>: Matrix or dataframe of raw item scores</li>
+</ul>
+<p>However, there a more input arguments that are important:</p>
+<ul>
+<li><code>totals</code>: if TRUE find total scores (!aka sum scores), if FALSE (default), find average scores</li>
+<li><code>missing</code>: <code>missing = TRUE</code> is the normal case and data are imputed according to the impute option. <code>missing = FALSE</code>, only complete cases are scored.</li>
+</ul>
+<p>It is recommended to use <code>missing = FALSE</code> (see <a href="#app1-rowsums">Approach 1: rowSums</a>).</p>
+<p>Because the function calculates several other statistics (e.g., Cronbachs <span class="math inline">\(\alpha\)</span>, average correlation within a scale, …), we do it in two-step approach. Executing the function and save the information in the object, and then extracting (with the <code>$</code> operator) the scores from the object (i.e., <code>YsumPsych$scores</code>).</p>
+<ol type="1">
+<li>Calculation of the sum score</li>
+</ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (myvar <span class="cf">in</span> <span class="fu">list</span>(x,y)) {</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">myFirstFunction</span>(<span class="at">variable =</span> myvar)</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>      Mean         SD        Min        Max 
--0.2576685  0.9897502 -2.1137370  2.3826642 
-       Mean          SD         Min         Max 
- 0.04328125  0.87849494 -2.06482325  1.74441160 </code></pre>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>YsumPsych <span class="ot">&lt;-</span> psych<span class="sc">::</span><span class="fu">scoreItems</span>(<span class="at">keys =</span> <span class="fu">rep</span>(<span class="dv">1</span>, <span class="fu">length</span>(YList)),</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>                               <span class="at">items =</span> dat3dim[,YList],</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>                               <span class="at">totals =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>                               <span class="at">missing =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>                               <span class="at">min =</span> <span class="dv">1</span>,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>                               <span class="at">max =</span> <span class="dv">4</span>)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>dat3dim<span class="sc">$</span>Ysum2 <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(YsumPsych<span class="sc">$</span>scores)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li>Calculation of the average score</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>YavgPsych <span class="ot">&lt;-</span> psych<span class="sc">::</span><span class="fu">scoreItems</span>(<span class="at">keys =</span> <span class="fu">rep</span>(<span class="dv">1</span>, <span class="fu">length</span>(YList)),</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>                               <span class="at">items =</span> dat3dim[,YList],</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>                               <span class="at">totals =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>                               <span class="at">missing =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>                               <span class="at">min =</span> <span class="dv">1</span>,</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>                               <span class="at">max =</span> <span class="dv">4</span>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>dat3dim<span class="sc">$</span>Yavg2 <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(YavgPsych<span class="sc">$</span>scores)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
 </div>
-</div>
+</section>
+<section id="calculating-many-scale-scores" class="level3">
+<h3 class="anchored" data-anchor-id="calculating-many-scale-scores">Calculating many scale scores</h3>
+<ol start="0" type="1">
+<li>Writing a function</li>
+</ol>
+</section>
+<section id="generating-a-table" class="level3">
+<h3 class="anchored" data-anchor-id="generating-a-table">Generating a table</h3>
+</section>
+</section>
+<section id="references" class="level2">
+
+
 
 
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-line-spacing="2" role="doc-bibliography">
+<div id="ref-Enders2010" class="csl-entry" role="doc-biblioentry">
+Enders, C. K. (2010). <em>Applied missing data analysis</em>. <span>Guilford Press</span>.
+</div>
+<div id="ref-McNeish2020" class="csl-entry" role="doc-biblioentry">
+McNeish, D., &amp; Wolf, M. G. (2020). Corrigendum to: Thinking twice about sum scores. <em>Behavior Research Methods</em>, <em>52</em>(6), 2674. <a href="https://doi.org/10.3758/s13428-020-01468-3.">https://doi.org/10.3758/s13428-020-01468-3.</a>
+</div>
+<div id="ref-R-psych" class="csl-entry" role="doc-biblioentry">
+Revelle, W. (2022). <em>Psych: Procedures for psychological, psychometric, and personality research</em>. <a href="https://personality-project.org/r/psych/
+https://personality-project.org/r/psych-manual.pdf">https://personality-project.org/r/psych/ https://personality-project.org/r/psych-manual.pdf</a>
+</div>
+<div id="ref-Rose2019" class="csl-entry" role="doc-biblioentry">
+Rose, N., Wagner, W., Mayer, A., &amp; Nagengast, B. (2019). Model-based manifest and latent composite scores in structural equation models. <em>Collabra: Psychology</em>, <em>5</em>(1), 243. <a href="https://doi.org/10.1525/collabra.143">https://doi.org/10.1525/collabra.143</a>
+</div>
+<div id="ref-Schafer2002" class="csl-entry" role="doc-biblioentry">
+Schafer, J. L., &amp; Graham, J. W. (2002). Missing data: Our view of the state of the art. <em>Psychological Methods</em>, <em>7</em>(2), 147–177. <a href="https://doi.org/10.1037/1082-989X.7.2.147">https://doi.org/10.1037/1082-989X.7.2.147</a>
+</div>
+<div id="ref-Widaman2022" class="csl-entry" role="doc-biblioentry">
+Widaman, K. F., &amp; Revelle, W. (2022). Thinking thrice about sum scores, and then some more about measurement and analysis. <em>Behavior Research Methods</em>. <a href="https://doi.org/10.3758/s13428-022-01849-w">https://doi.org/10.3758/s13428-022-01849-w</a>
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -626,14 +713,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./data-proc.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Data processing</span>
+      <a href="./data-proc-recode.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Recode (many) variables</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./data-proc-nam-lists.html" class="pagination-link">
-        <span class="nav-page-text">(Named) Lists &amp; character vectors</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->

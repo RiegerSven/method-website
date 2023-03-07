@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Sven Rieger">
-<meta name="dcterms.date" content="2023-03-06">
+<meta name="dcterms.date" content="2023-03-07">
 
 <title>METHODS MATTER - Recode (many) variables</title>
 <style>
@@ -113,6 +113,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./data-proc-scale-scores.html" rel="next">
 <link href="./data-proc-nam-lists.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -248,6 +249,11 @@ div.csl-indent {
   <a href="./data-proc-recode.html" class="sidebar-item-text sidebar-link active">Recode (many) variables</a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data-proc-scale-scores.html" class="sidebar-item-text sidebar-link">Computing scale scores</a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -285,7 +291,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Last update on</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">March 6, 2023</p>
+      <p class="date">March 7, 2023</p>
     </div>
   </div>
   
@@ -295,9 +301,22 @@ div.csl-indent {
 
 </header>
 
+<div class="callout-warning callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This page is work in progress.</p>
+</div>
+</div>
 <p>Recoding variables is … For example, psychological measures often contain so-called reversed formulated items. Moreover, sometimes it is necessary to condense categories.</p>
 <div class="callout-caution callout callout-style-simple callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -306,7 +325,7 @@ If you need example data, here is some simulated data.
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The data generating process follows 3-dimensional confirmatory factor analyses model with categorical indicators. Each latent variable (<span class="math inline">\(\eta_1,\eta_2, \eta_3\)</span>) is measured by 4 ordered categorical indicators. The last items (i.e., <span class="math inline">\(Y_4\)</span>, <span class="math inline">\(Z_4\)</span>, and <span class="math inline">\(W_4\)</span>) should be recoded (indicated by a negative factorloading).</p>
 <p>For data generation, we used the <code>simulateData</code> function of the <code>lavaan</code> package <span class="citation" data-cites="R-lavaan">(<a href="#ref-R-lavaan" role="doc-biblioref">Rosseel et al., 2022</a>)</span>. If you are interested in simulating data, please see <a href="#simulations.qmd">here</a>.</p>
@@ -629,7 +648,7 @@ Warning
 <p>Note that this approach is not very robust across different recoding strategies. However, for recoding lickert items that are coded like in this example, it is a convenient approach.</p>
 </div>
 </div>
-<p>In this approach, we subtract the variable <span class="math inline">\(Y_4\)</span> from the number of categories + 1 (here there are 4 categories 1 to 4).</p>
+<p>In this approach, we subtract the variable <span class="math inline">\(Y_4\)</span> from the sum of the maximum and minimum of the item (here is maximum = 4 minimum = 1).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>dat3dim<span class="sc">$</span>Y4r2 <span class="ot">&lt;-</span> <span class="dv">5</span> <span class="sc">-</span> dat3dim<span class="sc">$</span>Y4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -989,6 +1008,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./data-proc-scale-scores.html" class="pagination-link">
+        <span class="nav-page-text">Computing scale scores</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

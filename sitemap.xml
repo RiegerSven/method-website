@@ -2,86 +2,90 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://RiegerSven.github.io/method-website/about-n.n.html</loc>
-    <lastmod>2023-03-06T10:04:18.324Z</lastmod>
+    <lastmod>2023-03-07T16:39:30.462Z</lastmod>
   </url>
   <url>
     <loc>https://RiegerSven.github.io/method-website/about-sven.html</loc>
-    <lastmod>2023-03-06T10:04:18.929Z</lastmod>
+    <lastmod>2023-03-07T16:39:31.057Z</lastmod>
   </url>
   <url>
     <loc>https://RiegerSven.github.io/method-website/about.html</loc>
-    <lastmod>2023-03-06T10:04:19.474Z</lastmod>
+    <lastmod>2023-03-07T16:39:31.720Z</lastmod>
   </url>
   <url>
     <loc>https://RiegerSven.github.io/method-website/data-proc-func-loops.html</loc>
-    <lastmod>2023-03-06T10:04:21.854Z</lastmod>
+    <lastmod>2023-03-07T16:39:33.887Z</lastmod>
   </url>
   <url>
     <loc>https://RiegerSven.github.io/method-website/data-proc-nam-lists.html</loc>
-    <lastmod>2023-03-06T10:04:24.344Z</lastmod>
+    <lastmod>2023-03-07T16:39:36.436Z</lastmod>
   </url>
   <url>
     <loc>https://RiegerSven.github.io/method-website/data-proc-recode.html</loc>
-    <lastmod>2023-03-06T10:04:27.304Z</lastmod>
+    <lastmod>2023-03-07T16:39:39.463Z</lastmod>
+  </url>
+  <url>
+    <loc>https://RiegerSven.github.io/method-website/data-proc-scale-scores.html</loc>
+    <lastmod>2023-03-07T16:39:41.886Z</lastmod>
   </url>
   <url>
     <loc>https://RiegerSven.github.io/method-website/data-proc.html</loc>
-    <lastmod>2023-03-06T10:04:27.934Z</lastmod>
+    <lastmod>2023-03-07T16:39:42.498Z</lastmod>
   </url>
   <url>
     <loc>https://RiegerSven.github.io/method-website/index-content.html</loc>
-    <lastmod>2023-03-06T10:04:28.594Z</lastmod>
+    <lastmod>2023-03-07T16:39:43.083Z</lastmod>
   </url>
   <url>
     <loc>https://RiegerSven.github.io/method-website/index-software.html</loc>
-    <lastmod>2023-03-06T10:04:30.964Z</lastmod>
+    <lastmod>2023-03-07T16:39:45.679Z</lastmod>
   </url>
   <url>
     <loc>https://RiegerSven.github.io/method-website/index.html</loc>
-    <lastmod>2023-03-06T10:04:31.680Z</lastmod>
+    <lastmod>2023-03-07T16:39:46.385Z</lastmod>
   </url>
   <url>
     <loc>https://RiegerSven.github.io/method-website/measure-mod-irt.html</loc>
-    <lastmod>2023-03-06T10:04:32.227Z</lastmod>
+    <lastmod>2023-03-07T16:39:47.021Z</lastmod>
   </url>
   <url>
     <loc>https://RiegerSven.github.io/method-website/measure-mod-sem.html</loc>
-    <lastmod>2023-03-06T10:04:35.334Z</lastmod>
+    <lastmod>2023-03-07T16:39:50.172Z</lastmod>
   </url>
   <url>
     <loc>https://RiegerSven.github.io/method-website/measure-mod.html</loc>
-    <lastmod>2023-03-06T10:04:35.964Z</lastmod>
+    <lastmod>2023-03-07T16:39:50.821Z</lastmod>
   </url>
   <url>
     <loc>https://RiegerSven.github.io/method-website/simulations-how-to-start.html</loc>
-    <lastmod>2023-03-06T10:04:36.576Z</lastmod>
+    <lastmod>2023-03-07T16:39:51.349Z</lastmod>
   </url>
   <url>
     <loc>https://RiegerSven.github.io/method-website/simulations-parallel.html</loc>
-    <lastmod>2023-03-06T10:04:37.104Z</lastmod>
+    <lastmod>2023-03-07T16:39:51.896Z</lastmod>
   </url>
   <url>
     <loc>https://RiegerSven.github.io/method-website/simulations-setup.html</loc>
-    <lastmod>2023-03-06T10:04:37.647Z</lastmod>
+    <lastmod>2023-03-07T16:39:52.533Z</lastmod>
   </url>
   <url>
     <loc>https://RiegerSven.github.io/method-website/simulations.html</loc>
-    <lastmod>2023-03-06T10:04:38.164Z</lastmod>
+    <lastmod>2023-03-07T16:39:53.181Z</lastmod>
   </url>
   <url>
     <loc>https://RiegerSven.github.io/method-website/stat-mod.html</loc>
-    <lastmod>2023-03-06T10:04:38.692Z</lastmod>
+    <lastmod>2023-03-07T16:39:53.720Z</lastmod>
   </url>
   <url>
     <loc>https://RiegerSven.github.io/method-website/visualizations-hist-bar.html</loc>
-    <lastmod>2023-03-06T10:04:39.314Z</lastmod>
+    <lastmod>2023-03-07T16:39:54.362Z</lastmod>
   </url>
   <url>
     <loc>https://RiegerSven.github.io/method-website/visualizations-scatter.html</loc>
-    <lastmod>2023-03-06T10:04:39.861Z</lastmod>
+    <lastmod>2023-03-07T16:39:55.002Z</lastmod>
   </url>
   <url>
     <loc>https://RiegerSven.github.io/method-website/visualizations.html</loc>
-    <lastmod>2023-03-06T10:04:40.500Z</lastmod>
+    <lastmod>2023-03-07T16:39:55.633Z</lastmod>
   </url>
 </urlset>
