@@ -13,7 +13,7 @@ The majority of the provided code is from the statistical software R [@R-base]. 
 #| results: asis
 
 pkgList <- c("knitr", "kableExtra",
-             "car",
+             "car", "psych",
              "lavaan",
              "ggplot2",
              "MplusAutomation")

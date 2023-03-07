@@ -5,6 +5,11 @@ published-title: "Last update on"
 date: today
 ---
 
+
+:::{.callout-warning}
+This page is work in progress.
+:::
+
 Recoding variables is ...
 For example, psychological measures often contain so-called reversed formulated items. Moreover, sometimes it is necessary to condense categories.
 
@@ -124,7 +129,7 @@ with(dat3dim, table(Y4, Y4r1))
 Note that this approach is not very robust across different recoding strategies. However, for recoding lickert items that are coded like in this example, it is a convenient approach.
 :::
 
-In this approach, we subtract the variable $Y_4$ from the number of categories + 1 (here there are 4 categories 1 to 4).
+In this approach, we subtract the variable $Y_4$ from the sum of the maximum and minimum of the item (here is maximum = 4 minimum = 1).
 
 ```{r}
 #| label: recode-y4-2

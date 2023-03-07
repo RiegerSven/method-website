@@ -6,9 +6,13 @@ title: "Home"
 This page is work in progress.
 :::
 
-## About the homepage
+## About the website
 
-The website is designed to support researchers by providing tutorials on data processing, statistical analyses and visualizations. A more detailed overview can be found in the section [Content Overview](index-content.qmd). Most of the tutorials are based on text books or papers (these are cited at the bottom of every page: References) or originate from great web resources such as [stackoverflow](https://stackoverflow.com/), or [stats.stackexchange](https://stats.stackexchange.com/).
+The website is designed to support researchers by providing tutorials on data processing, statistical analyses, visualizations and automation thereof. A more detailed overview can be found in the section [Content Overview](index-content.qmd). Most of the tutorials are based on (introductory) text books/papers (these are cited at the bottom of every page: References) or originate from great web resources such as [stackoverflow](https://stackoverflow.com/), or [stats.stackexchange](https://stats.stackexchange.com/).
+
+## Requirements and prior knowledge
+
+We assume that you are familiar with basic concepts of the respective statistical program ([supported software](index-software.qmd)) and have a profound understanding of [regression modeling](https://en.wikipedia.org/wiki/Regression_analysis) (e.g., linear regression).
 
 The website is build with [Quarto](quarto.org) and is published with [Github pages](https://pages.github.com/).
 
@@ -37,4 +41,3 @@ Found errors or any bugs? Please send us an email [&#9993;](mailto:sven.rieger@u
  
 If you want to contribute, please send us an email [&#9993;](mailto:sven.rieger@uni-tuebingen.de). We will check whether or to what extent your idea(s) fit/s into objective of the website.
 
-[Hello](google.com){border=true;}
