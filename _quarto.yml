@@ -48,6 +48,7 @@ website:
         - href: data-proc-func-loops.qmd
         - href: data-proc-nam-lists.qmd
         - href: data-proc-recode.qmd
+        - href: data-proc-scale-scores.qmd
     - title:  "Measurement Models"
       style: "docked"
       background: light
